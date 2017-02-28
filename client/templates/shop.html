@@ -1,0 +1,44 @@
+<ion-view view-title="Challenge" hide-nav-bar="true">
+    <ion-header-bar class="bar-deepblue bar bar-header disable-user-behavior" align-title="center">
+        <div class="buttons buttons-left header-item" style="">
+            <span class="left-buttons">
+            <button menu-toggle="left" class="white-color button button-icon button-clear ion-navicon"></button>
+          </span>
+        </div>
+        <div class="title title-center header-item">Challenge</div>
+
+        <div class="buttons buttons-right header-item" ng-controller="MyController" ng-include="'client/templates/_lives.html'"></div>
+    </ion-header-bar>
+
+    <ion-content lazy-scroll>
+        <a class="product-box challenge" ng-repeat="product in products track by $index">
+            <div class="product-box" ui-sref="app.shop-details({productId : product._id})" ng-if="!product.ads">
+                <div class="item item-image">
+                    <img ng-if="!product.ads" ng-src="{{imagex(product.mainImage)}}">
+                </div>
+                <div class="item item-body">
+                    <div class="item-title-price">
+                        <div class="item-title">
+                            <h1>{{product.name}}</h1>
+                        </div>
+                        <div class="item-price">
+                            <h2><i class="fa"></i>$ {{product.price | currency:"":2}}</h2></div>
+                    </div>
+                    <div class="item-discount-rate">
+                        <div class="item-rate">
+                            <h3><span class="points"><i class="fa fa-bolt"></i> Discount Rate: </span> <span class="points-currency"><i class="fa"></i></span>$ {{product.discount | number:3}}</h3></div>
+                        <div class="item-arrow"><i class="fa fa-clone"></i> {{product.stock}} <span>  <i class="fa fa-angle-double-right"></i></span></div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="product-box" ng-if="product.ads">
+                <div class="item item-image">
+                    <img ng-if="product.ads" ng-src="{{product.image}}">
+                </div>
+            </div>
+
+        </a>
+    </ion-content>
+</ion-view>

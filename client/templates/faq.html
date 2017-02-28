@@ -1,0 +1,31 @@
+<ion-view view-title="Settings" hide-nav-bar="true">
+    <ion-header-bar class="bar-deepblue bar bar-header disable-user-behavior" align-title="center">
+        <div class="buttons buttons-left header-item" style="">
+            <span class="left-buttons">
+            <button menu-toggle="left" class="white-color button button-icon button-clear ion-navicon"></button>
+          </span>
+        </div>
+
+        <div class="title title-center header-item">FAQS</div>
+
+
+        <div class="buttons buttons-right header-item" ng-controller="MyController" ng-include="'client/templates/_lives.html'"></div>
+
+    </ion-header-bar>
+
+    <!-- main content -->
+    <ion-content class="whit-bg">
+        <ion-list>
+            <div ng-repeat="group in groups">
+                <ion-item class="item-stable" ng-click="toggleGroup(group)" ng-class="{active: isGroupShown(group)}">
+                    <i class="icon" ng-class="isGroupShown(group) ? 'ion-minus' : 'ion-plus'"></i> &nbsp; {{group.title}}
+                </ion-item>
+                <ion-item class="item-accordion" ng-show="isGroupShown(group)" >
+                    <div class="item-description-text" ng-bind-html="group.content | unsafe"></div>
+                </ion-item>
+            </div>
+        </ion-list>
+    </ion-content>
+
+
+</ion-view>

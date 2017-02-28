@@ -1,0 +1,193 @@
+/*
+
+
+
+
+    - In methods while adding a Play 
+        -
+    = check the users matching array in challange and kick the olders createdValue of them 
+        - play Stop
+        - Challenge updated with score .
+        - Update Log 
+
+
+*/
+//
+PlayFunctions = {}
+
+
+
+PlayFunctions = {
+    
+    liveChangeOut : function(usrId , value){
+        
+        Meteor.users.update(usrId , {$inc : {"profile.lives" : value}});
+        
+    },
+    
+    setDiscount : function(productId , playId){
+        
+        
+        
+        
+        // Calculate ..The survived combination Numbers 
+        
+        var survived = Plays.find({statusActive : true}).count();
+        
+        
+        //console.log('survived : ' + survived)
+        // Product
+        
+        var product = Products.findOne(productId)
+        
+        //console.log("Product : " + product.name)
+        //console.log("Product discount : " + product.discount) // WORKING AT SERVER .
+        //console.log("Product rate : " + product.discountrate) // DOES NOT WORK .
+        
+        // price-(esc*discount rate) = new price (edited)
+        
+        //var randomUsers = _.random(0, 100)
+        
+        //console.log('Users : in the pool { Simulation } in the system : ' + randomUsers)
+        
+//        var newPrice = parseFloat(product.price)  - (randomUsers * parseFloat(product.discount));
+        var newPrice = parseFloat(product.price)  - (survived * parseFloat(product.discount));
+        
+        //console.log('test Parse ' + parseFloat(product.price))
+        
+        var winPrice = parseFloat(product.price) - parseFloat(newPrice)
+        
+        
+        //console.log("Product Price : " + product.price)
+        //console.log("Product discount price : " + newPrice)
+        
+        //console.log('------------------------')
+        
+        return {
+            newPrice : newPrice.toFixed(2) ,
+            winPrice : winPrice.toFixed(2)
+        }
+
+
+    },
+    
+    setLogsFeed : function(data){
+        
+        // Log what 
+        
+//        console.log(data)
+        
+        if(data.type == 'feed'){
+            
+            var user = Meteor.users.findOne({_id : data.usr}, {profile : 1});
+            var product = Products.findOne({_id : data.productId});
+            var play = Plays.findOne(data.play);
+            
+//            console.log(product)
+//            console.log(play)
+            
+            //data.name = user.profile.name ;
+            data.name = this.getUserName(data.usr);
+            
+            data.picture = user.profile.picture ;
+            data.product = product.name ;
+            data.productPrice = product.price ;
+            
+            data.profilePic = user.profile.picture ;
+            
+            
+            data.discountPrice = play.discountPrice ;
+            
+            
+            data.winPrice = play.cwinPrice ;
+            
+            
+            
+        }
+        
+        //console.log(data)
+        
+        Logs.insert(data , function(err){
+            if(err){
+                console.log('Log Error  : game.play.fun.js' )
+            }
+        })
+        
+        
+    },
+    
+    getNextSurvey : function (usr){
+        
+        // Find if this answer this survey or not 
+        
+        // check in usrs [] array 
+        
+        // survey results inside the survey model 
+        
+        // ** Client side : if the user has lives less than 5 display survey template ( can work in challenge controller to pass to 2 routes set .)
+    
+    },
+    getUserName(usr){
+        var userName = Meteor.users.findOne(usr);
+        if(userName.username){
+            return userName.username ;
+        }else{
+            return userName.profile.name
+        }
+    }
+    
+    
+}
+
+
+
+
+
+
+PlayFunctions.setCounter = function () {
+    
+    
+
+    var activePlays = Plays.find({
+        statusActive: true,
+        botPlay: false
+    }).fetch()
+
+    //console.log(activePlays);
+
+    var activePlaysCount = Plays.find({
+        statusActive: true
+    }).count()
+
+    console.log('playfun counter : ' + activePlaysCount)
+
+    _.each(activePlays, function (activePlay) {
+        
+        
+        var newPrice = parseFloat(activePlay.productPrice) - (activePlay.score * parseFloat(activePlay.productDiscount));
+        
+        var winPrice = parseFloat(activePlay.productPrice) - parseFloat(newPrice);
+        
+        
+        
+        
+        Plays.update(activePlay._id , {$set : {cNewPrice : newPrice , cwinPrice : winPrice} , $inc : {score : 1}},function(err){
+            if(err){
+                console.log('Playfunction game.play.fun.js' + err)
+            }
+        })
+        
+        
+        //playOp = Plays.findOne(activePlay._id)
+        
+        //console.log('activePlaysCount')
+        //console.log(activePlay.productPrice + ' : ' + activePlay.productDiscount + ' : ' + activePlay.startCounter + ' : ' + newPrice)
+        //console.log('activePlaysCount')
+
+        //console.log(playOp)
+    })
+
+    
+    
+//    console.log('-----')
+}

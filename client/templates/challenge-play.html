@@ -1,0 +1,65 @@
+
+<ion-view view-title="Shipment" hide-nav-bar="true" cache-view="false">
+
+    <ion-content class="ion-content-black ion-content-padding">
+
+
+        <div ng-include="'client/templates/_ads.play.html'" ng-controller="adsPlay"></div>
+
+        <div class="product-box product-details">
+            <div class="item item-body item-product-details pr0 pl0">
+                <div class="item-description">
+                    <div class="item-pro-title">
+                        <h1>{{play.productName}}</h1></div>
+                </div>
+                <div class="item-title-price item-title-price-top-border">
+                    <div class="item-rate order">
+                        <h3><span class="points"><i class="fa fa-bolt"></i> Discount Rate: </span> <span class="points-currency"><i class="fa fa-{{prodetail.currency}}"></i></span>$ {{play.productDiscount | number:3}}</h3></div>
+                    <div class="item-price order">
+                        <h2><i class="fa fa-{{prodetail.currency}}"></i>$ {{play.productPrice | currency : ""}}</h2></div>
+                </div>
+            </div>
+
+            <div class="playanimation">
+                <img src="img/randomino-play-2.png" style="width: 100%;height:80px;">
+<!--                score {{play.score }} {{scorex}}-->
+                
+<!--                combAnimation-->
+                
+<!--                <blaze-template name="combAnimation" replace></blaze-template>-->
+                
+            </div>
+
+            <div class="your-discount-container">
+                <div class="your-discount-text"><i class="fa fa-bolt"></i> Your Discount </div>
+                <div class="your-discount-result"><span class="play-currency"></span>
+                    $ {{winPriceC | currency : ""}}
+                </div>
+            </div>
+            <div class="divider-container"><i class="fa fa-angle-double-right"></i></div>
+            <div class="your-new-price-container">
+                <div class="your-new-price-text"><i class="fa fa-tag"></i> New Price</div>
+                <div class="your-discount-result"><span class="play-currency" ng-if="newPriceC == 0" ng-init="winFree()"></span>
+                    $ {{newPriceC | currency : ""}}
+                </div>
+            </div>
+        </div>
+        
+        
+        <br>
+        <br>
+        
+
+
+
+
+    </ion-content>
+
+
+    <ion-footer-bar class="footer-red-btn pointer" ng-click="stopChallange(play._id)">
+        <h1 class="btn-text">Stop</h1>
+    </ion-footer-bar>
+
+
+
+</ion-view>

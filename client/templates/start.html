@@ -1,0 +1,86 @@
+<!--
+  #TIP: in this case we hide the navbar provided by navigation system.
+-->
+<ion-view hide-nav-bar="true" hide-side-menu="true">
+
+    <!--
+    #IMPLEMENTATION-DETAIL
+    We are using custom classes in "scss/scaffolding.scss"
+  -->
+    <ion-content class="padding full-height">
+        <!--        <h1 class="logo-randomino">-->
+        <!--        <img ng-src="/img/Default-750@2x~iphone6-landscape_1334x750.png" class="full-image" />-->
+        <!--    </h1>-->
+
+
+        <img ng-src="Default-Landscape@2x~ipad_2048x1496.png" class="full-image" style="padding:-10px;margin-top:-10px;margin-bottom:-30px;" />
+
+
+
+
+
+
+
+        <!--
+      #IMPLEMENTATION-DETAIL:
+      we are wrapping the login button in an ionic grid in order
+      to keep it centered and quite large
+
+
+        Translation Testing
+    
+     {{"Title" | translate}}
+
+-->
+
+
+        <div class="row" ng-controller="loginSocial">
+            <div class="col">
+
+
+
+                <div class="dummy">
+                    <a ui-sref="app.tutorial">Developer > Tutorial</a>
+                </div>
+
+                <button class="button button-large button-block button-facebook" ng-click="facebookLogin()">
+                    <span class="btn-social-icon fb"><i class="fa fa-facebook"></i></span>
+                    <span class="btn-social-text">Login with Facebook</span>
+                </button>
+                <button class="button button-large button-block button-twitter" ng-click="twitterLogin()">
+                    <span class="btn-social-icon tw"><i class="fa fa-twitter"></i></span>
+                    <span class="btn-social-text">Login with Twitter</span>
+                </button>
+<!--
+
+                <button class="button button-large button-block button-instragram" ng-click="instagramLogin()">
+                    <span class="btn-social-icon ins"><i class="fa fa-instagram"></i></span>
+                    <span class="btn-social-text">Login with Instagram</span>
+                </button>
+-->
+
+<!--
+
+                <button href="#/app/login/test" ui-sref="app.loginTest" class="button button-large button-block button-instragram">
+                    <span class="btn-social-icon ins"><i class="fa fa-lock"></i></span>
+
+                    <span class="btn-social-text">Login</span>
+                </button>
+-->
+
+
+            </div>
+        </div>
+
+    </ion-content>
+
+    <!--
+   We put a link to signup screen in footer bar.
+  -->
+    <!--
+  <ion-footer-bar class="footer-green-btn pointer" ui-sref="app.signup">
+    <h1 class="btn-text">Register</h1>
+  </ion-footer-bar>
+-->
+
+</ion-view>

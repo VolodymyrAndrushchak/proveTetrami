@@ -1,0 +1,47 @@
+<!--
+  #TIP: in this case we hide the navbar provided by navigation system.
+-->
+<ion-view hide-nav-bar="true">
+
+  <!--
+    #IMPLEMENTATION-DETAIL
+    We are using custom classes in "scss/scaffolding.scss"
+  -->
+  <ion-content class="padding full-height">
+    <h1 class="logo-randomino">
+        <img src="img/logo-randomino@2.png" class="full-image"/>
+    </h1>
+
+
+    <!--
+      #IMPLEMENTATION-DETAIL:
+      we are wrapping the login button in an ionic grid in order
+      to keep it centered and quite large
+    -->
+
+    <div class="row">
+        <div class="col">
+          <button class="button button-large button-block button-facebook" ui-sref="app.register">
+            <span class="btn-social-icon fb"><i class="fa fa-facebook"></i></span>
+            <span class="btn-social-text">Register with Facebook</span>
+           </button>
+          <button class="button button-large button-block button-twitter" ui-sref="app.register">
+            <span class="btn-social-icon tw"><i class="fa fa-twitter"></i></span>
+            <span class="btn-social-text">Register with Twitter</span>
+          </button>
+          <button class="button button-large button-block button-instragram" ui-sref="app.login">
+            <span class="btn-social-icon ins"><i class="fa fa-instagram"></i></span>
+            <span class="btn-social-text">Register with Instagram</span>
+          </button>
+        </div>
+    </div>
+  </ion-content>
+
+  <!--
+   We put a link to signup screen in footer bar.
+  -->
+  <ion-footer-bar class="footer-green-btn pointer" ui-sref="app.start">
+    <h1 class="btn-text">Back to login</h1>
+  </ion-footer-bar>
+
+</ion-view>

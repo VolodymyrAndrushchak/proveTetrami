@@ -1,0 +1,191 @@
+<ion-view view-title="checkout confirm" hide-nav-bar="true">
+    <ion-header-bar class="bar-deepblue bar bar-header disable-user-behavior dark" align-title="center">
+        <div class="buttons buttons-left header-item" style="">
+            <span class="left-buttons">
+            <button class="button button-icon button-clear" ng-click="goBack()"><i class="fa fa-angle-left btn-back-arrow-icon"></i> <span class="btn-back-text">back</span></button>
+            </span>
+        </div>
+        <div class="title title-center header-item"></div>
+
+        <div class="buttons buttons-right header-item">
+            <span class="right-buttons">
+            <i class="fa fa-shopping-bag btn-heart-icon"></i>
+          </span>
+        </div>
+    </ion-header-bar>
+
+
+    <!--     ng-repeat="prodetail in prodetails"  -->
+    <ion-content class="ion-content-black">
+        <div class="breadcrumb-container">
+            <ul class="breadcrumb-checkout">
+                <li>Address</li>
+                <li ng-show="!play.wonFree">Payment</li>
+                <li class="active">Confirm</li>
+            </ul>
+        </div>
+        <div class="checkout-address-container">
+            <div class="list settings-list divider">
+                <div class="item item-divider">
+                    Summary
+                </div>
+            </div>
+            <div class="whit-bg">
+
+
+
+                <div class="summary-container">
+                    <div class="summary-address">
+                        <h1>Address</h1>
+                        <span class="sum-fullname">{{play.address.fullName}}</span>
+                        <span class="sum-phone">+{{play.address.phone}}</span>
+                        <span class="sum-address">{{play.address.address}}</span>
+                        <span class="sum-city-district">{{play.address.district}} </span>
+                        <span class="sum-city-district">{{play.address.city}}, {{play.address.district}} , {{play.address.zip}}</span>
+                        <span class="sum-city-district">{{play.address.email}}</span>
+                    </div>
+                    <div class="summary-payment">
+                        <h1>Payment</h1>
+                        <span class="sum-fullname" ng-show="!play.wonFree">Credit Card via Stripe.</span>
+                        <span class="sum-fullname" ng-show="play.wonFree">Free.</span>
+                    </div>
+                    <div class="sum-product">
+                        <h1>{{challenge.name}}</h1>
+                        <div class="sum-price">
+                            <div class="sum-left">
+                                <span class="sum-old-price">Old Price</span>
+                                <span class="sum-your-discount">Your Discount</span>
+                            </div>
+                            <div class="sum-right">
+                                <span class="sum-old-price">$ {{play.productPrice | currency:"":2}}</span>
+                                <span class="sum-your-discount" ng-show="!play.wonFree">$ {{play.winPrice | currency:"":2}}</span>
+                                <span class="sum-your-discount" ng-show="play.wonFree">$ {{play.productPrice | currency:"":2}}</span>
+                            </div>
+                            <div class="clear"></div>
+                        </div>
+                        <div class="sum-price final-sum">
+                            <div class="sum-left">
+                                <span class="sum-new-price">New Price</span>
+                            </div>
+                            <div class="sum-right">
+                                <span class="sum-new-price" ng-show="!play.wonFree">$ {{play.newPrice | currency:"":2}}</span>
+                                <span class="sum-new-price" ng-show="play.wonFree">$ {{00 | currency:"":2}}</span>
+                            </div>
+                        </div>
+                        <div class="clear"></div>
+                    </div>
+                </div>
+
+
+                <form class="list mb0" name="ccForm" ng-show="!play.wonFree" ng-submit="checkoutBuy(card)">
+                    <div class="item item-divider">
+                        Credit Card Information.
+                    </div>
+                    <!--
+
+                    <label class="item  item-input item-select item-stacked-label padding">
+                        <div class="input-label">
+                            Credit Card Type
+                        </div>
+                        <select ng-model="card.cardType" ng-options="type for type in ['Visa', 'American Express', 'MasterCard']"></select>
+                    </label>
+
+-->
+
+                    <label class="item item-input">
+                        <span class="input-label">Card Number </span>
+                        <i class="icon ion-close placeholder-icon error-icon" ng-show="ccForm.cardNumber.$invalid && ccForm.cardNumber.$ccEagerType || ccForm.cardNumber.$error.required || ccForm.cardNumber.$error.ccNumberType"></i>
+
+                        <i class="icon ion-checkmark-round placeholder-icon done-icon" ng-show="ccForm.cardNumber.$valid"></i>
+
+                        <input type="text" ng-model="card.number" name="cardNumber" cc-number cc-type="cardType" ng-required="true">
+                        <!--
+
+                        <p ng-show="ccForm.cardNumber.$invalid && ccForm.cardNumber.$ccEagerType">
+                            Looks like you're typing a {{ccForm.cardNumber.$ccEagerType}} number!
+                        </p>
+                        <p ng-show="ccForm.cardNumber.$valid">
+                            Yes, that looks like a valid {{ccForm.cardNumber.$ccType}} number!
+                        </p>
+                        <p ng-show="ccForm.cardNumber.$error.ccNumberType">That's not a valid {{cardType}}</p>
+
+                        <p ng-show="ccForm.cardNumber.$error.required">
+                            You must enter a credit card number!
+                        </p>
+-->
+
+                    </label>
+                    <div class="item item-input item-stacked-label row padding">
+                        <span class="input-label">Expiration Date</span>
+                        <input ng-model="card.exp_month" ng-model="card.month" name="ccExpMonth" type="text" class="col" placeholder="Month" cc-exp-month ng-required="true" />
+                        <input ng-model="card.exp_year" ng-model="card.year" name="ccExpYear" type="text" class="col" placeholder="Year" cc-exp-year ng-required="true" />
+
+
+                        <i class="icon ion-close placeholder-icon error-icon" ng-show="ccForm.ccExpMonth.$invalid || ccForm.ccExpYear.$invalid"></i>
+
+
+                        <i class="icon ion-checkmark-round placeholder-icon done-icon" ng-show="ccForm.ccExpMonth.$valid && ccForm.ccExpYear.$valid"></i>
+
+
+
+                    </div>
+
+                    <label class="item item-input  row padding">
+                        <span class="input-label">Security Code</span>
+                        
+                        <i class="icon ion-close placeholder-icon error-icon" ng-show="ccForm.ccCvc.$invalid"></i>
+
+
+                        <i class="icon ion-checkmark-round placeholder-icon done-icon" ng-show="ccForm.ccCvc.$valid"></i>
+
+
+                        <input class="col" type="text" ng-model="card.cvc" maxlength="4" name="ccCvc" cc-cvc cc-type="ccForm.ccNumber.$ccType" name="ccCvc" ng-required="true">
+
+
+                    </label>
+
+
+
+                    <div class="terms-container">
+                        <div class="list mb0">
+                            <a class="item terms-conditions">
+                                <div class="list-text">Terms &amp; Conditions</div>
+                                <div class="list-icon"><i class="fa fa-chevron-right"></i></div>
+                            </a>
+                        </div>
+                        <div class="list mb0" ng-click="checkoutTerms()">
+
+                            <ion-checkbox ng-model="pushNotification.checked" ng-change="pushNotificationChange()">I accept Terms &amp; Conditions</ion-checkbox>
+                        </div>
+                    </div>
+                    <!--
+
+                    <div class="padding">
+                        <button type="submit" ng-disabled="ccForm.$invalid" class="button button-block button-positive">MAKE PAYMENT</button>
+                    </div>
+-->
+
+                </form>
+
+                <div class="terms-container" ng-show="play.wonFree">
+                    <div class="list mb0">
+                        <a class="item terms-conditions">
+                            <div class="list-text">Terms &amp; Conditions</div>
+                            <div class="list-icon"><i class="fa fa-chevron-right"></i></div>
+                        </a>
+                    </div>
+                    <div class="list mb0" ng-click="checkoutTerms()">
+
+                        <ion-checkbox ng-model="pushNotification.checked" ng-change="pushNotificationChange()">I accept Terms &amp; Conditions</ion-checkbox>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+    </ion-content>
+    <ion-footer-bar class="footer-yellow-btn black pointer" ng-disabled="ccForm.$invalid" ng-click="checkoutBuy(card)">
+        <h1 class="btn-text" ng-show="!play.wonFree">Buy</h1>
+        <h1 class="btn-text" ng-show="play.wonFree">Get</h1>
+    </ion-footer-bar>
+</ion-view>

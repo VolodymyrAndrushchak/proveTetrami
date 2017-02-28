@@ -1,0 +1,152 @@
+.modal-wrapper{
+    
+    
+}
+
+
+.modal-backdrop-bg {
+/*    transition: opacity 300ms ease-in-out;*/
+/*    -webkit-transition: opacity 300ms ease-in-out;*/
+    background-color: #000;
+    opacity: 0;
+}
+
+.active .modal-backdrop-bg {
+    opacity: 0.8;
+}
+
+
+/* What it works */
+.transparent {
+background: transparent !important;
+}
+
+
+
+.popup-bg{
+/*  background-color: #000;*/
+  padding: 20px;
+/*    height: 100%;*/
+}
+
+/* title */
+.get-live-title{
+  text-align: center;
+  font-size: 18px;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+  font-weight: 700;
+}
+h3.get-live-title{
+  color: #dfff00;
+}
+.cancel-checkout-title{
+  text-align: center;
+  font-size: 18px;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+  font-weight: 700;
+}
+h3.cancel-checkout-title{
+  color: #ea4849;
+}
+.cancel-checkout-text{
+  color: #ea4849;
+  text-align: center;
+  line-height: 1.2em;
+  margin-bottom: 30px;
+}
+
+/* btn live */
+.button-live{
+  background-color: #dfff00;
+  border: 0px;
+  color: #000;
+  text-align: left;
+  font-family: "Helvetica Neue", sans-serif;
+  font-size: 16px;
+  font-weight: 200;
+  padding: 0px;
+  -webkit-border-radius: 8px;
+     -moz-border-radius: 8px;
+          border-radius: 8px;
+}
+.button-live.cancel{
+  background-color: transparent;
+  color: #dfff00;
+  font-weight: 700;
+}
+.button-live.cancel:hover,
+.button-live.cancel:focus,
+.button-live.cancel.activated{
+  background-color: transparent;
+  color: #fff;
+}
+.button-live:hover,
+.button-live:focus,
+.button-live.activated{
+  background-color: #c3de05;
+  color: #222;
+}
+
+.btn-live-text{
+  width: 80%;
+  height: 54px;
+  display: inline-block;
+  text-align: left;
+  font-size: 18px;
+  padding: 0px 15px
+}
+.btn-live-heart{
+  font-weight: 700;
+  margin-left: 10px;
+}
+.btn-live-cancel{
+  width: 100%;
+  height: 54px;
+  display: inline-block;
+  text-align: center;
+  font-size: 16px;
+  padding: 0px 15px;
+  text-transform: uppercase;
+}
+/* btn checkout cancel */
+.button-checkout-cancel{
+  background-color: #ea4849;
+  border: 0px;
+  color: #fff;
+  text-align: left;
+  font-family: "Helvetica Neue", sans-serif;
+  font-size: 16px;
+  font-weight: 200;
+  padding: 0px;
+  -webkit-border-radius: 8px;
+     -moz-border-radius: 8px;
+          border-radius: 8px;
+}
+.button-checkout-cancel.white{
+  background-color: #fff;
+  color: #ea4849;
+}
+.btn-checkout-cancel{
+  width: 100%;
+  height: 54px;
+  display: inline-block;
+  text-align: center;
+  font-size: 16px;
+  font-weight: 700;
+  padding: 0px 15px;
+  text-transform: uppercase;
+}
+.button-checkout-cancel:hover,
+.button-checkout-cancel:focus,
+.button-checkout-cancel.activated{
+  background-color: #cb3a3b;
+  color: #fff;
+}
+.button-checkout-cancel.white:hover,
+.button-checkout-cancel.white:focus,
+.button-checkout-cancel.white.activated{
+  background-color: #f1f1f1;
+  color: #cb3a3b;
+}

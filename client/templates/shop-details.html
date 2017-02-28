@@ -1,0 +1,70 @@
+<ion-view view-title="Shipment" hide-nav-bar="true">
+    <ion-header-bar class="bar-deepblue bar bar-header disable-user-behavior" align-title="center">
+        <div class="buttons buttons-left header-item" style="">
+            <span class="left-buttons">
+            <button ui-sref="app.shop" class="button button-icon button-clear"><i class="fa fa-angle-left btn-back-arrow-icon"></i> <span class="btn-back-text">back</span></button>
+            </span>
+        </div>
+        <div class="title title-center header-item"></div>
+
+        <div class="buttons buttons-right header-item" ng-controller="MyController" ng-include="'client/templates/_lives.html'"></div>
+
+    </ion-header-bar>
+
+    <ion-content class="ion-content-black">
+        <!--    <div class="product-box product-details" ng-repeat="prodetail in prodetails">-->
+        <div class="product-box product-details">
+            <ion-slide-box>
+
+                                <img ng-src="{{imagex(prodetail.mainImage)}}">
+
+<!--
+                <ion-slide ng-repeat="image in prodetail.images">
+
+
+                                                            <img ng-src="http://web.randomino.net{{imagex(prodetail.mainImage)}}">
+                    <img ng-src="{{imagex(image)}}" ng-if="imagex(image)">
+
+                </ion-slide>
+-->
+                <!--                <ion-slide><img src="{{prodetail.image}}"></ion-slide>-->
+
+            </ion-slide-box>
+            <div class="item item-body item-product-details">
+                <div class="item-title-price">
+                    <div class="item-rate">
+                        <h3><span class="points"><i class="fa fa-bolt"></i> Discount Rate: </span> <span class="points-currency"></span> $ {{prodetail.discount | number:3}}</h3>
+
+                    </div>
+                    <div class="item-price">
+                        <h2>$ {{prodetail.price | currency:"":2}}</h2>
+
+                    </div>
+                </div>
+                <div class="item-description">
+                    <div class="item-pro-title">
+                        <h1>{{prodetail.name}}</h1></div>
+                    <span><i class="fa fa-clone"></i> {{prodetail.stock}}   in stock</span>
+                    <hr>
+                    <div class="text" style="color:#fff !important;" ng-bind-html="prodetail.desc | unsafe">
+                    </div>
+                    <br>
+                    <br>
+                    <br>
+
+
+                </div>
+            </div>
+        </div>
+    </ion-content>
+
+
+    <!--    <div ng-include="'client/templates/_shared/_startChallange.html'" ng-controller="startChallange"></div>-->
+
+
+    <ion-footer-bar class="footer-yellow-btn black pointer" ng-click="addToCartClient(prodetail._id)">
+        <h1 class="btn-text">START CHALLENGE <i class="fa fa-chevron-right"></i></h1>
+    </ion-footer-bar>
+
+
+</ion-view>

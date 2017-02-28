@@ -1,0 +1,7 @@
+<ion-item menu-close href="#/app/account" class="item-menu-avatar text-center">
+    <img src="{{avatar}}" class="avatar-menu">
+    <div class="item-menu-user">
+        <span class="item-menu-fullname" ng-if="profile.name">{{profile.name}}</span>
+        <span class="item-menu-username" ng-if="profile.profile.username">{{profile.username}}</span>
+    </div>
+</ion-item>

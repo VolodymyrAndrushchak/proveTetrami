@@ -1,0 +1,54 @@
+<ion-view view-title="Shipment" hide-nav-bar="true">
+  <ion-header-bar class="bar-deepblue bar bar-header disable-user-behavior" align-title="center">
+        <div class="buttons buttons-left header-item" style="">
+          <span class="left-buttons">
+            <button ui-sref="app.shop-details" class="button button-icon button-clear"><i class="fa fa-close btn-close-icon"></i> <span class="btn-back-text">cancel</span></button>
+          </span>
+        </div>
+        <div class="title title-center header-item"></div>
+        <div class="buttons buttons-right header-item" style="">
+          <span class="right-buttons">
+            <button ui-sref="" class="button button-icon button-clear"><span class="btn-heart-text">8</span> <i class="fa fa-heart btn-heart-icon"></i></button>
+          </span>
+        </div>
+  </ion-header-bar>
+
+  <ion-content>
+    <div class="challenge-title-survey-container title">
+      <h1>how many children do you have?</h1>
+    </div>
+      <div class="container-survey">
+        <ul>
+        <li>
+          <input type="radio" id="a-option" name="selector">
+          <label for="a-option">0</label>
+          <div class="check"></div>
+        </li>
+        <li>
+          <input type="radio" id="b-option" name="selector">
+          <label for="b-option">1</label>
+          <div class="check"><div class="inside"></div></div>
+        </li>
+        <li>
+          <input type="radio" id="c-option" name="selector">
+          <label for="c-option">2</label>
+          <div class="check"><div class="inside"></div></div>
+        </li>
+        <li>
+          <input type="radio" id="d-option" name="selector">
+          <label for="d-option">3</label>
+          <div class="check"><div class="inside"></div></div>
+        </li>
+        <li>
+          <input type="radio" id="e-option" name="selector">
+          <label for="e-option">4+</label>
+          <div class="check"><div class="inside"></div></div>
+        </li>
+        </ul>
+      </div>
+  </ion-content>
+  <ion-footer-bar class="footer-green-btn black pointer" ui-sref="app.challenge-play">
+    <div class="footer-gradient"></div>
+    <h1 class="btn-text">Finish</h1>
+  </ion-footer-bar>
+</ion-view>

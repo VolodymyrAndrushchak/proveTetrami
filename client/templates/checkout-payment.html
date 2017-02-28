@@ -1,0 +1,36 @@
+<ion-view view-title="Shipment" hide-nav-bar="true">
+  <ion-header-bar class="bar-deepblue bar bar-header disable-user-behavior dark" align-title="center">
+        <div class="buttons buttons-left header-item" style="">
+          <span class="left-buttons">
+            <button ng-click="goBack()" class="button button-icon button-clear"><i class="fa fa-angle-left btn-back-arrow-icon"></i> <span class="btn-back-text">back</span></button>
+          </span>
+        </div>
+        <div class="title title-center header-item">Checkout</div>
+        <div class="buttons buttons-right header-item">
+          <span class="right-buttons">
+            <i class="fa fa-shopping-bag btn-heart-icon"></i>
+          </span>
+        </div>
+  </ion-header-bar>
+
+  <ion-content class="ion-content-black">
+    <div class="breadcrumb-container">
+      <ul class="breadcrumb-checkout">
+        <li>Address</li>
+        <li class="active">Payment</li>
+        <li>Confirm</li>
+      </ul>
+    </div>
+    <div class="">
+      <div class="list settings-list">
+        <div class="item item-divider">
+          Select Payment Kind
+        </div>
+        <a class="item" ng-click="checkoutConfirm()">
+          <div class="list-text"><i class="fa fa fa-cc-stripe"></i> Credit Card via Stripe</div>
+          <div class="list-icon"><i class="fa fa-chevron-right"></i></div>
+        </a>
+      </div>
+    </div>
+  </ion-content>
+</ion-view>

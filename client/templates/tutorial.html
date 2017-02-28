@@ -1,0 +1,23 @@
+<!--
+  #TIP: in this case we hide the navbar provided by navigation system.
+-->
+<ion-view hide-nav-bar="true" hide-side-menu="true" scroll="false">
+    <ion-slide-box class="slider-tutorial" on-slide-changed="slideHasChanged($index)">
+      <ion-slide>
+        <div class="box tutorial-en-1"></div>
+        <ion-footer-bar class="tutorial-footer">
+          <div class="footer-gradient tutorial"></div>
+        </ion-footer-bar>
+      </ion-slide>
+      <ion-slide>
+        <div class="box tutorial-en-2"></div>
+      </ion-slide>
+      <ion-slide>
+        <div class="box tutorial-en-3">
+          <div class="footer-button">
+            <button class="button button-large button-block button-black" ui-sref="app.start">GO Start <i class="fa fa-chevron-right"></i></button>
+          </div>
+        </div>
+      </ion-slide>
+    </ion-slide-box>
+</ion-view>

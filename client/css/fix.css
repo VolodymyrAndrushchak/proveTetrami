@@ -1,0 +1,27 @@
+.challenge-title-container h1{
+    margin-bottom: 80px !important;
+    margin-top: 40px !important;
+}
+
+
+/*checkout form validation*/
+/*
+
+.item-floating-label {
+  padding-left: 40px !important;
+}
+*/
+
+.placeholder-icon {
+  padding-left: 18px;
+  position: absolute;
+  bottom: 9px;
+  right: 17px;
+}
+
+.error-icon{
+    color: red !important;
+}
+.done-icon{
+    color: green !important;
+}

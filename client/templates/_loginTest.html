@@ -1,0 +1,20 @@
+<ion-view hide-nav-bar="true">
+
+
+    <ion-header-bar class="bar-deepblue bar bar-header disable-user-behavior" align-title="center">
+
+        <div class="title title-center header-item">Login</div>
+    </ion-header-bar>
+    <ion-content class="has-header has-footer padding full-height text-center">
+<!--        <login-buttons></login-buttons>-->
+        <label class="item item-input">
+            <input type="text" ng-model="credentials.username" placeholder="UserName" />
+        </label>
+        <label class="item item-input">
+            <input type="password" ng-model="credentials.password" placeholder="Password" />
+        </label>
+        <login-buttons></login-buttons>
+        <button class="button button-block button-positive" ng-click="doLoginAction(credentials)">Login</button>
+        <button class="button button-block button-dark" ng-click="doCreateAccountAction(credentials)">Create Account</button>
+    </ion-content>
+</ion-view>

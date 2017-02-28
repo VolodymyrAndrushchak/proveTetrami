@@ -1,0 +1,29 @@
+<ion-view view-title="Shipment" hide-nav-bar="true">
+    <ion-header-bar class="bar-deepblue bar bar-header disable-user-behavior" align-title="center">
+        <div class="buttons buttons-left header-item" style="">
+            <span class="left-buttons">
+            <button ui-sref="app.shop" class="button button-icon button-clear"><i class="fa fa-close btn-close-icon"></i> <span class="btn-back-text">cancel</span></button>
+            </span>
+        </div>
+        <div class="title title-center header-item"></div>
+
+        <div class="buttons buttons-right header-item" ng-controller="MyController" ng-include="'client/templates/_lives.html'"></div>
+
+    </ion-header-bar>
+
+    <ion-content>
+        <div ng-repeat="survey in surveys">
+            <div class="challenge-title-survey-container title">
+                <h1>{{survey.question}}</h1>
+            </div>
+            <div class="container-survey">
+                <ion-radio ng-repeat="choice in survey.choices" ng-value="choice.id" id="{{choice.id}}" ng-model="choices.choice" ng-click="change(choice, survey._id)" name="selector">{{ choice.choice }}</ion-radio>
+
+            </div>
+        </div>
+    </ion-content>
+    <ion-footer-bar class="footer-green-btn black pointer" ng-click="takeSurvey()">
+        <div class="footer-gradient"></div>
+        <h1 class="btn-text">Finish</h1>
+    </ion-footer-bar>
+</ion-view>

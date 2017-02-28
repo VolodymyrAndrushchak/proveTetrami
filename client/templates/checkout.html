@@ -1,0 +1,68 @@
+<ion-view view-title="Shipment" hide-nav-bar="true">
+    <ion-header-bar class="bar-deepblue bar bar-header disable-user-behavior dark" align-title="center">
+        <div class="buttons buttons-left header-item" style="">
+            <span class="left-buttons cancel-buttons">
+            <button ui-sref="app.shop" class="button button-icon button-clear"><i class="fa fa-close btn-close-icon"></i> <span class="btn-back-text">cancel</span></button>
+            </span>
+        </div>
+        <div class="title title-center header-item">Checkout</div>
+
+        <div class="buttons buttons-right header-item" ng-controller="MyController" ng-include="'client/templates/_lives.html'"></div>
+
+    </ion-header-bar>
+
+    <ion-content class="ion-content-black">
+        <div class="product-box product-details">
+            <ion-slide-box>
+
+
+                <!--                    <img ng-src="http://web.tetrami.com{{imagex(prodetail.mainImage)}}">-->
+                <img ng-src="{{imagex(play.productImage)}}">
+
+
+            </ion-slide-box>
+
+            <div class="pl15 pr15">
+                <div class="item-title-price item-noborder checkout won pb5 pt5">
+                    <div class="item-pro-title grey">
+                        <h1>{{play.productName}}</h1>
+
+
+                    </div>
+                    <div class="item-price grey">
+                        <h2><i class="fa fa-{{prodetail.currency}}"></i>$ {{play.productPrice | currency : ""}}</h2></div>
+                </div>
+
+                <div class="your-discount-box checkout">
+                    <div class="your-discount-container">
+                        <div class="your-discount-text"><i class="fa fa-bolt"></i> Your Discount</div>
+                        <div class="your-discount-result" ng-show="!play.wonFree"><span class="play-currency"></span>$ {{winPrice | currency : ""}}</div>
+                        <div class="your-discount-result" ng-show="play.wonFree"><span class="play-currency"></span>$ {{play.productPrice | currency : ""}}</div>
+                    </div>
+                    <div class="divider-container"><i class="fa fa-angle-double-right"></i></div>
+                    <div class="your-new-price-container">
+                        <div class="your-new-price-text"><i class="fa fa-tag"></i> New Price</div>
+                        <div class="your-discount-result" ng-show="!play.wonFree">$ {{newPrice | currency : ""}}</div>
+                        <div class="your-discount-result" ng-show="play.wonFree"> $ {{00 | currency : ""}}</div>
+                    </div>
+                </div>
+
+                <div class="item-description checkout">
+
+                    <div class="text" style="color:#fff !important;" ng-bind-html="play.productDesc | unsafe">
+                    </div>
+
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                </div>
+            </div>
+        </div>
+    </ion-content>
+
+    <ion-footer-bar class="footer-yellow-btn black pointer" ng-click="checkoutAddress()">
+        <h1 class="btn-text">Go checkout <i class="fa fa-chevron-right"></i></h1>
+    </ion-footer-bar>
+
+</ion-view>

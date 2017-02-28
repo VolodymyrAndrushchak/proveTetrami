@@ -1,0 +1,131 @@
+<!--
+  #IMPLEMENTATION-DETAIL:
+  this view is our top one and uses ion-side-menus component.
+  In case of views where we want to hide the menu, we'll hide the
+  navigation bar provided here.
+  #TIP: enable-menu-with-back-views="true" is set to true to show the menu opening control in all views by default.
+-->
+<ion-side-menus enable-menu-with-back-views="true">
+
+    <ion-side-menu-content>
+        <ion-nav-bar class="bar-deepblue">
+            <!-- #TIP: <ion-nav-back-button> is commented out in this example,
+        uncomment if you need a back button in some views.
+      -->
+            <!--
+      <ion-nav-back-button>
+      </ion-nav-back-button>
+      -->
+            <ion-nav-buttons side="left">
+                <button class="white-color button button-icon button-clear ion-navicon" menu-toggle="left">
+                </button>
+            </ion-nav-buttons>
+        </ion-nav-bar>
+
+        <ion-nav-view name="menuContent" class="slide-left-right"></ion-nav-view>
+
+    </ion-side-menu-content>
+
+    <ion-side-menu side="left">
+        <!--
+      #IMPLEMENTATION-DETAIL:
+      we are using our custom bar classes here
+      see scss/themed.scss for implementation.
+    -->
+
+
+        <ion-content>
+            <ion-list>
+                <!-- #TIP:
+          Menu items are wrapped In the following <ion-list>.
+          Each one has attribute "menu-close" set in order to automatically close side menu on click
+        -->
+
+
+                <div ng-include="'client/templates/_shared/_profile.html'" ng-controller="profileCtrl"></div>
+
+                <!--
+                <ion-item class="first-menu" menu-close ui-sref-active="active" href="#/app/login/test" ui-sref="app.loginTest">
+                    <i class="fa fa-arrow-circle-right"></i> Login
+                </ion-item>
+-->
+
+
+                <ion-item class="first-menu" menu-close ui-sref-active="active" href="#/app/feed" ui-sref="app.feed">
+                    <i class="fa fa-arrow-circle-right"></i> {{"Start" | translate}} 
+                </ion-item>
+
+
+                <ion-item menu-close ui-sref-active="active" href="#/app/shop" ui-sref="app.shop">
+                    <i class="fa fa-dot-circle-o"></i> {{"Challenge" | translate}}
+                </ion-item>
+                
+                
+                
+<!--
+                
+                <ion-item menu-close ui-sref-active="active" href="#/app/surveys" ui-sref="app.surveys" nav-direction="none" >
+                    <i class="fa fa-question-circle"></i>  {{"Surveys" | translate}}
+                </ion-item>
+-->
+
+
+                <!--MOT Used-->
+                
+                
+<!--
+
+                <ion-item menu-close ui-sref-active="active" href="#/app/cart" ui-sref="app.cart">
+                    <i class="fa fa-dot-circle-o"></i>  {{"Cart" | translate}}
+                </ion-item>
+-->
+
+                <ion-item menu-close ui-sref-active="active" href="#/app/order" ui-sref="app.order">
+                    <i class="fa fa-shopping-bag"></i> {{"order" | translate}}
+                </ion-item>
+                <ion-item menu-close ui-sref-active="active" href="#/app/account" ui-sref="app.account">
+                    <i class="fa fa-user"></i> {{"profile" | translate}}
+                </ion-item>
+                <ion-item menu-close ui-sref-active="active" href="#/app/settings" ui-sref="app.settings">
+                    <i class="fa fa-cog"></i>  {{"Settings" | translate}}
+                </ion-item>
+                <ion-item menu-close ui-sref-active="active" href="#/app/about" ui-sref="app.about">
+                    <i class="fa fa-star"></i>  {{"About" | translate}}
+                </ion-item>
+                
+                <ion-item menu-close ui-sref-active="active" href="#/app/faq" ui-sref="app.faq">
+                    <i class="fa fa-question-circle"></i>  {{"FAQ" | translate}}
+                </ion-item>
+
+<!--
+
+                <ion-item menu-close ui-sref-active="active" href="#/app/start" ui-sref="app.start" class="development">
+                    <i class="fa fa-cogs"></i> Development
+                </ion-item>
+-->
+
+            </ion-list>
+        </ion-content>
+
+        <!--
+      #IMPLEMENTATION-DETAIL:
+      we choose to put a "logout" button in the footer of side menu.
+      the "logout" method in contained in "AppCtrl" controller (see controllers.js)
+    -->
+        <ion-footer-bar class="bar-positive logout-bar sidemenu-footer-bar">
+<!--
+            <div class="sidemenu-footer-logo">
+                <img src="/img/logo-tetrami_2x.png" class="full-image" />
+            </div>
+-->
+<!--            <button class="button button-clear button-logout" ng-click="logout()" menu-close>Logout</button>-->
+
+            <div ng-include="'client/templates/_shared/_logout.html'" ng-controller="logOutCtrl"></div>
+            
+<!--            <a class="button button-clear button-logout" href="#/app/start" ui-sref="app.start" ng-click="doLogout()" menu-close>Logout</a>-->
+
+
+        </ion-footer-bar>
+
+    </ion-side-menu>
+</ion-side-menus>

@@ -1,0 +1,38 @@
+<ion-view view-title="Language" hide-nav-bar="true">
+    <ion-header-bar class="bar-deepblue bar bar-header disable-user-behavior" align-title="center">
+        <div class="buttons buttons-left header-item" style="">
+            <span class="left-buttons">
+            <button ui-sref="app.settings" class="button button-icon button-clear"><i class="fa fa-angle-left btn-back-arrow-icon"></i> <span class="btn-back-text">back</span></button>
+            </span>
+        </div>
+        <div class="title title-center header-item">Language</div>
+
+
+
+        <div class="buttons buttons-right header-item" ng-controller="MyController" ng-include="'client/templates/_lives.html'"></div>
+
+    </ion-header-bar>
+
+    <!-- main content -->
+    <ion-content class="whit-bg">
+        <div class="list settings-list divider">
+            <div class="item item-divider">
+                Select your Language
+            </div>
+        </div>
+        <ion-list>
+
+            <!--            For Testing purposes Only -->
+
+            <!--            <ion-radio class="center">Current Language : {{  lang.profile.lang  }}</ion-radio>-->
+
+            <ion-radio ng-model="value" value="en" ng-checked="(value == lang.profile.lang)" ng-change='setLang(value)'>English</ion-radio>
+
+            <ion-radio ng-model="value" value="tr" ng-checked="(value == lang.profile.lang)" ng-change='setLang(value)'>Türkçe</ion-radio>
+
+
+
+        </ion-list>
+    </ion-content>
+
+</ion-view>

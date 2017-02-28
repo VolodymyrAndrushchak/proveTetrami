@@ -1,0 +1,32 @@
+<ion-view view-title="Shipment" hide-nav-bar="true">
+    <ion-header-bar class="bar-deepblue bar bar-header disable-user-behavior" align-title="center">
+        <div class="buttons buttons-left header-item" style="">
+            <span class="left-buttons">
+            <button ui-sref="app.about" class="button button-icon button-clear"><i class="fa fa-angle-left btn-back-arrow-icon"></i> <span class="btn-back-text">back</span></button>
+            </span>
+        </div>
+        <div class="title title-center header-item">{{page.title}} {{page.name}}</div>
+
+        <div class="buttons buttons-right header-item" ng-controller="MyController" ng-include="'client/templates/_lives.html'"></div>
+
+    </ion-header-bar>
+
+    <ion-content>
+        <!--
+        <div class="text-center logo-padding-box">
+            <div class="sidemenu-footer-logo">
+                <img src="img/logo-randomino@2.png" class="full-image" />
+            </div>
+        </div>
+-->
+        <div class="text-left about-us-content">
+            <h1> {{page.name}}</h1>
+            
+            
+            <div class="item-description-text" ng-bind-html="page.content | unsafe"></div>
+            
+
+        </div>
+    </ion-content>
+
+</ion-view>

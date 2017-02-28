@@ -1,0 +1,46 @@
+<ion-view view-title="Start" hide-nav-bar="true">
+
+    <ion-header-bar class="bar-deepblue bar bar-header disable-user-behavior" align-title="center">
+        <div class="buttons buttons-left header-item" style="">
+            <span class="left-buttons">
+            <button menu-toggle="left" class="white-color button button-icon button-clear ion-navicon"></button>
+          </span>
+        </div>
+        <div class="title title-center header-item">Activity</div>
+        <!--            <div ng-controller="MyController" ng-include="'client/templates/savethis.html'"></div>-->
+        <div class="buttons buttons-right header-item" ng-controller="MyController" ng-include="'client/templates/_lives.html'"></div>
+    </ion-header-bar>
+
+    <ion-content scroll="true">
+        <!-- here we use a ion-refresher -->
+
+        <ion-refresher pulling-text="LOADING" on-refresh="doRefresh()">
+        </ion-refresher>
+
+        <!-- this message is shown in case of no feeds present -->
+        <div class="text-center" style="padding-top:40px;" ng-if="!feeds.length">
+            <h1 class="sans-pro-light">No feeds</h1>
+            <h4 class="sans-pro-light">Pull to refresh</h4>
+            <h2 class="ion-ios-arrow-thin-down"></h2>
+        </div>
+
+        <div class="activity-stream fade" ng-repeat="feed in feeds" ng-animate="fadein">
+            <div class="item item-avatar item-button-right">
+                <!--                <img src="{{feed.userImage}}">-->
+                <img src="{{avatar(feed.usr)}}">
+                <h2><span class="text-username" ng-if="feed.nickname">{{feed.nickname | uppercase}} </span> <span class="text-username" ng-if="!feed.nickname">{{feed.userName | uppercase}} </span><span class="text-won"> won</span> <span class="text-wons">$ {{feed.winPrice | currency:"":2}}</span> <span class="text">discount</span></h2>
+                <p class="text">for {{feed.productName}} $ {{feed.productPrice | currency:"":0}}</p>
+            </div>
+        </div>
+
+    </ion-content>
+
+    <ion-footer-bar class="footer-orange-btn black pointer" style="background:orange;color:#000;" ui-sref="app.shop">
+        <div class="footer-gradient"></div>
+        <h1 class="btn-text text" style="color:#fff;">
+      <div class="bounce"><i class="fa fa-angle-double-right fa-animation"></i></div>
+        Start now
+      <div class="bounce-l"><i class="fa fa-angle-double-left fa-animation"></i></div>
+    </h1>
+    </ion-footer-bar>
+</ion-view>

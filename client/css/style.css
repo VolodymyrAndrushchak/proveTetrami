@@ -1,0 +1,150 @@
+/*
+    Randomino 2.0
+    Developer Note
+*/
+
+
+.in-title-container h1{
+  display: block;
+  text-align: center;
+  color: #222;
+  font-size: 22px;
+  font-weight: 50;
+  margin-top: 20px;
+}
+
+
+
+.slideInput{
+    height: 80px !important ;
+    width: 85% !important ;
+    font-size: 40px !important ;
+    display: block;
+    margin:0px auto;
+}
+
+
+.black-text{
+    color: black;
+}
+
+
+.combinationText {
+    font-size: 80px;
+    font-weight: bold;
+    color: black;
+}
+
+
+/*
+
+.combinationText.ng-enter {
+  animation: bounceInLeft 1s;
+}
+
+.combinationText.ng-leave {
+  animation: fadeOut 1s;
+}
+*/
+
+
+
+
+
+@-webkit-keyframes slideInSmooth {
+  0% {
+    -webkit-transform: translate3d(-100%,0,0);
+  }
+ 
+  50% {
+    -webkit-transform: translate3d(50%,0,0);
+  }
+ 
+  100% {
+    -webkit-transform: translate3d(0,0,0);
+  }
+}
+
+
+.slide-in{
+   -webkit-animation: slideInSmooth ease-in 1; 
+  animation: slideInSmooth ease-in 1;
+  -webkit-animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
+  -webkit-animation-duration: 750ms;
+  animation-duration: 750ms;
+}
+
+
+
+@-webkit-keyframes slideInBothWays {
+  0% {
+    transform: translate3d(-100%,0,0);
+    -webkit-transform: translate3d(-100%,0,0);
+  }
+ 
+  50% {
+    transform: translate3d(50%,0,0);
+    -webkit-transform: translate3d(50%,0,0);
+  }
+ 
+  100% {
+    transform: translate3d(0,0,0);
+    -webkit-transform: translate3d(0,0,0);
+  }
+}
+
+
+
+@-webkit-keyframes NAME-YOUR-ANIMATION {
+  0%   { opacity: 0; }
+  100% { opacity: 1; }
+}
+@-moz-keyframes NAME-YOUR-ANIMATION {
+  0%   { opacity: 0; }
+  100% { opacity: 1; }
+}
+@-o-keyframes NAME-YOUR-ANIMATION {
+  0%   { opacity: 0; }
+  100% { opacity: 1; }
+}
+@keyframes NAME-YOUR-ANIMATION {
+  0%   { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+@keyframes move {
+/*
+  from { top: -100; left: -100; }
+  to   { top: 100px; left: 100px; }
+*/
+    
+  0%   { opacity: 0; top : 150px ; }
+  100% { opacity: 1; top : 0px; }
+}
+
+
+
+[animate-on-change] {
+  transition: all  100ms;
+  -webkit-transition: all  100ms;
+    position: relative;
+    top: 0px;
+    left: 0px;
+    
+}
+[animate-on-change].changed {
+/*    font-size: 300px;*/
+/*
+    top: 100px;
+    left: 100px;
+*/
+    
+    
+    -webkit-animation: move 100ms infinite; /* Safari 4+ */
+  -moz-animation:    move 100ms infinite; /* Fx 5+ */
+  -o-animation:      move 100ms infinite; /* Opera 12+ */
+  animation:         move 100ms infinite; /* IE 10+, Fx 29+ */
+    
+}
+

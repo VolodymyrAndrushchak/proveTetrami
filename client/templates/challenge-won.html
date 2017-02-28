@@ -1,0 +1,71 @@
+<ion-view view-title="Challenge Won." hide-nav-bar="true">
+    <ion-content class="ion-content-black ion-content-padding">
+        <div class="product-box product-details">
+            <div class="item item-body item-product-details pr0 pl0">
+
+                <div class="challenge-icon">
+                    <img src="img/icon-you-won.png" width="35">
+                </div>
+
+                <div class="challenge-text">
+                    <h1>Hey, you won <span>$ {{play.winPrice | currency : ""}}</span> discount <i class="text" ng-show="!play.wonFree">, can you top it ?</i> <i class="text" ng-show="play.wonFree">.</i></h1>
+                </div>
+
+                <div class="m0">
+                    <button class="button button-large button-block button-yellow-border" ng-click="playAgain()"><i class="fa fa-repeat"></i> Play Again</button>
+                </div>
+
+
+                <div ng-include="'client/templates/_ads.play.html'" ng-controller="adsPlay"></div>
+
+
+                <div class="or-buy-now">
+                    - or buy now -
+                </div>
+
+                <div class="item-title-price item-noborder won">
+                    <div class="item-pro-title grey">
+
+                        <h1><strong>{{play.productName}}</strong></h1>
+
+                    </div>
+
+                    <div class="item-price grey">
+                        <h2>$ {{play.productPrice | currency : ""}}</h2></div>
+                </div>
+
+                <div class="your-discount-box">
+                    <div class="your-discount-container">
+                        <div class="your-discount-text"><i class="fa fa-bolt"></i> Your Discount</div>
+                        <div class="your-discount-result" ng-if="!play.wonFree"><span class="play-currency"></span>$ {{play.winPrice | currency : ""}}
+                        </div>
+                        <div class="your-discount-result" ng-if="play.wonFree"><span class="play-currency"></span>$ {{play.productPrice | currency : ""}}
+                        </div>
+
+
+                    </div>
+                    <div class="divider-container"><i class="fa fa-angle-double-right"></i></div>
+                    <div class="your-new-price-container">
+                        <div class="your-new-price-text"><i class="fa fa-tag"></i> New Price</div>
+                        <div class="your-discount-result" ng-if="!play.wonFree"><span class="play-currency"></span>$ {{play.newPrice | currency : ""}} </div>
+                        <div class="your-discount-result" ng-if="play.wonFree"><span class="play-currency"></span>$ {{0 | currency : ""}} </div>
+
+                    </div>
+                </div>
+
+
+
+
+                <div class="expire">Expire in {{timer |durationview}}</div>
+
+
+
+                <div class="mt15">
+                    <button class="button button-large button-block button-yellow" ng-click="buyIt()">See Details &amp; Buy</button>
+                    <!--          <button class="button button-large button-block button-yellow-border" ui-sref="app.challenge-failed">For Developer » Failed View</button>-->
+                </div>
+
+            </div>
+        </div>
+    </ion-content>
+</ion-view>

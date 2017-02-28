@@ -1,0 +1,78 @@
+<ion-view view-title="Surveys" hide-nav-bar="true" >
+    <ion-header-bar class="bar-deepblue bar bar-header disable-user-behavior" align-title="center">
+        <div class="buttons buttons-left header-item" style="">
+            <span class="left-buttons">
+            <button ui-sref="app.feed" class="button button-icon button-clear"><i class="fa fa-angle-left btn-back-arrow-icon"></i> <span class="btn-back-text">back</span></button>
+            </span>
+        </div>
+        <div class="title title-center header-item">Survey</div>
+
+
+        <div class="buttons buttons-right header-item" ng-controller="MyController" ng-include="'client/templates/_lives.html'"></div>
+
+    </ion-header-bar>
+
+    <ion-content>
+   <div class="">
+
+<!--        <div class="text-left" ng-repeat="survey in surveys">-->
+        <div class="text-left" ng-show="asnwered == null" ng-repeat="survey in surveys">
+            <div class="list">
+                <!--
+
+                <div class="item item-divider">
+                    
+                </div>
+-->
+
+                <div class="in-title-container">
+                    <h1>{{survey.question}}</h1>
+
+                </div>
+                
+                
+                      <div class="container-survey">
+        <ul>
+        <li ng-repeat="choice in survey.choices">
+<!--
+                            <ion-radio  ng-value="choice.id" ng-model="choices.choice" ng-click="change(choice, survey._id)">
+                    {{ choice.choice }}
+                </ion-radio>
+-->
+            
+            
+          <input type="radio" ng-value="choice.id" id="{{choice.id}}" ng-model="choices.choice" ng-click="change(choice, survey._id)" name="selector">  
+          <label for="{{choice.id}}">{{ choice.choice }}</label>
+          <div class="check"><div class="inside"></div></div>
+            
+            </li>
+            
+                          </ul>
+                          
+                </div>
+                <!-- ng-value="item.value" ng-model="data.clientSide"-->
+
+
+
+
+            </div>
+
+
+        </div>
+        
+        
+        <div class="text-center" ng-show="asnwered != null">
+                <h2>Thank You !</h2>
+        </div>
+
+
+        </div>
+    </ion-content>
+
+
+
+    <ion-footer-bar class="footer-green-btn black pointer black pointer" ng-click="takeSurvey()">
+        <h1 class="btn-text">START CHALLENGE <i class="fa fa-chevron-right"></i></h1>
+    </ion-footer-bar>
+
+</ion-view>

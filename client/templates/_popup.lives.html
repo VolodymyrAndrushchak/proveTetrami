@@ -1,0 +1,27 @@
+<ion-modal-view class="transparent" style="width: 100%; height: auto;top:25%;" ng-controller="modalLives">
+    <div class="popup-bg">
+        <h3 class="get-live-title">Get more Lives</h3>
+        <button class="button button-large button-block button-live" ng-click="watchAds()">
+            <span class="btn-live-text">Watch Ads</span>
+            <span class="btn-live-heart"><i class="fa fa-heart"></i> 2x</span>
+        </button>
+
+        <button class="button button-large button-block button-live" ng-click="answerSurvey()">
+            <span class="btn-live-text">Answer Question</span>
+            <span class="btn-live-heart"><i class="fa fa-heart"></i> 2x</span>
+        </button>
+
+
+
+        <button class="button button-large button-block button-live" ng-click="inviteFriends()">
+            <span class="btn-live-text">Invite Friends</span>
+            <span class="btn-live-heart"><i class="fa fa-heart"></i> 2x</span>
+        </button>
+
+
+        <button class="button button-large button-block button-live cancel" ng-click="modal.hide()">
+            <span class="btn-live-cancel">Cancel</span>
+        </button>
+    </div>
+
+</ion-modal-view>

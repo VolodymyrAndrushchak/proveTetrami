@@ -1,0 +1,158 @@
+<ion-view view-title="Start Challenge" hide-nav-bar="true">
+    <ion-header-bar class="bar-deepblue bar bar-header disable-user-behavior" align-title="center">
+        <div class="buttons buttons-left header-item" style="">
+            <span class="left-buttons">
+            <button ui-sref="app.shop" class="button button-icon button-clear"><i class="fa fa-close btn-close-icon"></i> <span class="btn-back-text">cancel</span></button>
+            </span>
+        </div>
+        <div class="title title-center header-item"></div>
+        <div class="buttons buttons-right header-item" ng-controller="MyController" ng-include="'client/templates/_lives.html'"></div>
+
+    </ion-header-bar>
+
+    <ion-content scroll="false">
+        <div class="challenge-title-container">
+            <h1>create your code &amp; win points</h1>
+        </div>
+        <div class="challenge-play-container">
+            <!--      <img src="img/randomino-play.png" style="width: 100%;">-->
+
+<!--
+            <div class="row">
+                <div class=" myslides col">
+                    <ks-swiper-container initial-slide="1" loop="false" show-nav-buttons="false" slides-per-view="1" space-between="5" pagination-clickable="true">
+                        <ks-swiper-slide class="swiper-slide" ng-repeat="s in [1,2,3,4]">
+                            <p>
+                                <h1>{{s}}</h1>
+                            </p>
+                        </ks-swiper-slide>
+                    </ks-swiper-container>
+
+                </div>
+
+
+                <div class=" myslides col">
+
+                    <ks-swiper-container loop="true" show-nav-buttons="true" slides-per-view="4" space-between="5" pagination-clickable="false">
+                        <ks-swiper-slide ng-repeat="s in [1,2,3,4,5]">
+                            <img ng-src="http://api.randomuser.me/portraits/thumb/women/{{s}}.jpg">
+                        </ks-swiper-slide>
+                    </ks-swiper-container>
+
+                </div>
+
+
+                <div class="col myslides ">
+                    <ks-swiper-container loop="false" show-nav-buttons="false" slides-per-view="4" space-between="5" pagination-clickable="false">
+                        <ks-swiper-slide>
+                            <img ng-src="http://api.randomuser.me/portraits/thumb/men/1.jpg">
+                        </ks-swiper-slide>
+                        <ks-swiper-slide>
+                            <img ng-src="http://api.randomuser.me/portraits/thumb/men/2.jpg">
+                        </ks-swiper-slide>
+                    </ks-swiper-container>
+                </div>
+
+
+            </div>
+-->
+
+
+            <div class="row">
+                <div class="col myslides">
+
+                    <div class="firstSwiper swiper-container">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide">A</div>
+                            <div class="swiper-slide">B</div>
+                            <div class="swiper-slide">C</div>
+                            <div class="swiper-slide">D</div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="col myslides">
+
+                    <div class="secondSwiper swiper-container">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide">A</div>
+                            <div class="swiper-slide">B</div>
+                            <div class="swiper-slide">C</div>
+                            <div class="swiper-slide">D</div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="col myslides">
+
+                    <div class="thirdSwiper swiper-container">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide">A</div>
+                            <div class="swiper-slide">B</div>
+                            <div class="swiper-slide">C</div>
+                            <div class="swiper-slide">D</div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="col myslides">
+
+                    <div class="forthSwiper swiper-container">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide">A</div>
+                            <div class="swiper-slide">B</div>
+                            <div class="swiper-slide">C</div>
+                            <div class="swiper-slide">D</div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!--
+            <div class="row">
+
+                <div class="col">
+
+
+
+                    <span ng-model="firComb" ng-click="getNext(firComb , 'firComb')" class="combinationText animated fadeInLeft " ng-animate="" animate-on-change='firComb'>{{firComb.text}}</span>
+
+
+                </div>
+
+                <div class="col">
+
+                    <span ng-model="secComb" ng-click="getNext(secComb , 'secComb')" class="combinationText animated fadeInLeft " animate-on-change='secComb'>{{secComb.text}}</span>
+                </div>
+
+                <div class="col">
+                    <span ng-model="thiComb" ng-click="getNext(thiComb , 'thiComb')" class="combinationText animated fadeInLeft " animate-on-change='thiComb'>{{thiComb.text}}</span>
+
+                </div>
+
+                <div class="col">
+
+                    <span ng-model="fortComb" ng-click="getNext(fortComb , 'fortComb')" class="combinationText animated fadeInLeft " animate-on-change='fortComb'>{{fortComb.text}}</span>
+
+                </div>
+
+
+            </div>
+-->
+
+        </div>
+    </ion-content>
+
+    <!--    <ion-footer-bar class="footer-green-btn black pointer" ng-click="startPlay()" ui-sref="app.challenge-survey-1">-->
+    <ion-footer-bar class="footer-green-btn black pointer" ng-click="startPlay()">
+        <h1 class="btn-text">START NOW <i class="fa fa-chevron-right"></i></h1>
+    </ion-footer-bar>
+
+</ion-view>

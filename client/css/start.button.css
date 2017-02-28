@@ -1,0 +1,73 @@
+.fa-animation {
+	width: 60px;
+	display: block;
+	text-align: center;
+	color:#ffffff;
+	text-rendering: auto;
+	-webkit-font-smoothing: antialiased;
+  font-size: 25px !important;
+}
+
+.bounce {
+  display: inline-block;
+	animation: bounce 2s infinite;
+	-webkit-animation: bounce 2s infinite;
+	-moz-animation: bounce 2s infinite;
+	-o-animation: bounce 2s infinite;
+}
+
+.bounce-l {
+  display: inline-block;
+	animation: bounceleft 2s infinite;
+	-webkit-animation: bounceleft 2s infinite;
+	-moz-animation: bounceleft 2s infinite;
+	-o-animation: bounceleft 2s infinite;
+}
+
+/* bounce */
+@-webkit-keyframes bounce {
+	0%, 20%, 50%, 80%, 100% {-webkit-transform: translateY(0);}
+	40% {-webkit-transform: translateX(-30px);}
+	60% {-webkit-transform: translateX(-15px);}
+}
+
+@-moz-keyframes bounce {
+	0%, 20%, 50%, 80%, 100% {-moz-transform: translateY(0);}
+	40% {-moz-transform: translateX(-30px);}
+	60% {-moz-transform: translateX(-15px);}
+}
+
+@-o-keyframes bounce {
+	0%, 20%, 50%, 80%, 100% {-o-transform: translateY(0);}
+	40% {-o-transform: translateX(-30px);}
+	60% {-o-transform: translateX(-15px);}
+}
+@keyframes bounce {
+	0%, 20%, 50%, 80%, 100% {transform: translateY(0);}
+	40% {transform: translateX(-30px);}
+	60% {transform: translateX(-15px);}
+}
+
+/* bounce left */
+@-webkit-keyframes bounceleft {
+	0%, 20%, 50%, 80%, 100% {-webkit-transform: translateY(0);}
+	40% {-webkit-transform: translateX(30px);}
+	60% {-webkit-transform: translateX(15px);}
+}
+
+@-moz-keyframes bounceleft {
+	0%, 20%, 50%, 80%, 100% {-moz-transform: translateY(0);}
+	40% {-moz-transform: translateX(30px);}
+	60% {-moz-transform: translateX(15px);}
+}
+
+@-o-keyframes bounceleft {
+	0%, 20%, 50%, 80%, 100% {-o-transform: translateY(0);}
+	40% {-o-transform: translateX(30px);}
+	60% {-o-transform: translateX(15px);}
+}
+@keyframes bounceleft {
+	0%, 20%, 50%, 80%, 100% {transform: translateY(0);}
+	40% {transform: translateX(30px);}
+	60% {transform: translateX(15px);}
+}

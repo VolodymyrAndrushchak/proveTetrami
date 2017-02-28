@@ -1,0 +1,78 @@
+<ion-view view-title="Account" hide-nav-bar="true">
+    <ion-header-bar class="bar-deepblue bar bar-header disable-user-behavior" align-title="center">
+        <div class="buttons buttons-left header-item" style="">
+            <span class="left-buttons">
+            <button menu-toggle="left" class="white-color button button-icon button-clear ion-navicon"></button>
+          </span>
+        </div>
+        <div class="title title-center header-item">Profile</div>
+
+        <div class="buttons buttons-right header-item" ng-controller="MyController" ng-include="'client/templates/_lives.html'"></div>
+
+
+    </ion-header-bar>
+
+    <form name="accountForm">
+        <!-- main content -->
+        <ion-content>
+            <div class="text-center ui-gradient-deepblue padding user-account-avatar">
+
+                <img src="{{avatar}}" class="avatar-account">
+            </div>
+            
+            <label class="item item-input item-input-transparent">
+                <input type="text" ng-model="profile.name" name="username" ng-readonly="readonly" placeholder="name..." ng-init="profile.name" required>
+
+
+            </label>
+            <label class="item item-input item-input-transparent">
+                <input type="text" ng-model="profile.username" name="name" id="name" ng-readonly="readonly" placeholder=" nickname..." ng-init="profile.username" required>
+            </label>
+            
+            <label class="item item-input item-input-transparent">
+                <input type="email" ng-model="profile.email" ng-init="profile.email" ng-readonly="readonly" placeholder="email..." required>
+
+
+                <br/>
+
+            </label>
+
+            
+
+
+            <div class="item assertive item-text-wrap text-center" ng-if="!readonly">
+                <p ng-if="!accountForm.email.$valid">InValid Email</p>
+            </div>
+
+            <div class="account-sm" ng-show="profile.services.twitter">
+                <button class="button button-large button-block button-facebook" disabled>
+                    <span class="btn-social-icon fb"><i class="fa fa-facebook"></i></span>
+                    <span class="btn-social-text">You are connected with Facebook</span>
+                </button>
+            </div>
+            <!-- this leverages angular form directive to show up in case of errors-->
+            <div class="item assertive item-text-wrap text-center" ng-if="readonly">
+                Please fill in all info
+            </div>
+        </ion-content>
+
+        <!-- footer bar -->
+        <!--
+      #IMPLEMENTATION-DETAIL:
+      we switch footer bar when editing form data
+    -->
+        <ion-footer-bar class="bar bar-positive" ng-click="startEdit()" ng-if="readonly">
+            <h2 class="title">Edit</h2>
+            <button ng-show="!readonly" class="button button-assertive" ng-click="saveEdit(accountUser)">Save changes</button>
+        </ion-footer-bar>
+
+        <ion-footer-bar class="bar bar-positive" ng-if="!readonly">
+            <button ng-if="!readonly" class="button button-cancel" ng-click="cancelEdit()">Cancel</button>
+            
+<!--            <button ng-show="!readonly" class="button button-save" ng-click="saveEdit()">Save</button>-->
+            <button ng-show="!readonly"  class="button button-save" ng-click="saveEdit()">Save</button>
+        </ion-footer-bar>
+
+    </form>
+
+</ion-view>

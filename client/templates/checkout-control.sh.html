@@ -1,0 +1,87 @@
+<ion-view view-title="Shipment" hide-nav-bar="true">
+  <ion-header-bar class="bar-deepblue bar bar-header disable-user-behavior dark" align-title="center">
+        <div class="buttons buttons-left header-item" style="">
+          <span class="left-buttons">
+            <button ui-sref="app.checkout-payment-credit-card" class="button button-icon button-clear"><i class="fa fa-angle-left btn-back-arrow-icon"></i> <span class="btn-back-text">back</span></button>
+          </span>
+        </div>
+        <div class="title title-center header-item">Checkout</div>
+        <div class="buttons buttons-right header-item">
+          <span class="right-buttons">
+            <i class="fa fa-shopping-bag btn-heart-icon"></i>
+          </span>
+        </div>
+  </ion-header-bar>
+
+  <ion-content class="ion-content-black" ng-repeat="prodetail in prodetails">
+    <div class="breadcrumb-container">
+      <ul class="breadcrumb-checkout">
+        <li>Address</li>
+        <li>Payment</li>
+        <li class="active">Confirm</li>
+      </ul>
+    </div>
+    <div class="checkout-address-container">
+      <div class="list settings-list divider">
+        <div class="item item-divider">
+          Summary
+        </div>
+      </div>
+      <div class="whit-bg">
+        <div class="summary-container">
+          <div class="summary-address">
+            <h1>Address</h1>
+            <span class="sum-fullname">David Richthofen</span>
+            <span class="sum-phone">+9055101010101</span>
+            <span class="sum-address">Gülbahar mahallesi<br/>Karanfil Sk. 6</span>
+            <span class="sum-city-district">İstanbul, Şişli</span>
+          </div>
+          <div class="summary-payment">
+            <h1>Payment</h1>
+            <span class="sum-fullname">David Richthofen</span>
+            <span class="sum-card-number">0000-0000-0000-0000</span>
+            <span class="sum-expiration-date">00/00</span>
+            <span class="sum-security-code">000</span>
+          </div>
+          <div class="sum-product">
+            <h1>Lacoste Watch Red Black 2</h1>
+            <div class="sum-price">
+              <div class="sum-left">
+                <span class="sum-old-price">Old Price</span>
+                <span class="sum-your-discount">Your Discount</span>
+              </div>
+              <div class="sum-right">
+                <span class="sum-old-price">338,00 <i class="fa fa-{{prodetail.currency}}"></i></span>
+                <span class="sum-your-discount">-50,00 <i class="fa fa-{{prodetail.currency}}"></i></span>
+              </div>
+              <div class="clear"></div>
+            </div>
+            <div class="sum-price final-sum">
+              <div class="sum-left">
+                <span class="sum-new-price">New Price</span>
+              </div>
+              <div class="sum-right" >
+                <span class="sum-new-price">333,00 <i class="fa fa-{{prodetail.currency}}"></i></span>
+              </div>
+            </div>
+            <div class="clear"></div>
+          </div>
+        </div>
+        <div class="terms-container">
+          <div class="list mb0">
+            <a class="item terms-conditions" href="#/app/checkout-terms" ui-sref="app.checkout-terms">
+              <div class="list-text">Terms &amp; Conditions</div>
+              <div class="list-icon"><i class="fa fa-chevron-right"></i></div>
+            </a>
+          </div>
+          <div class="list mb0">
+            <ion-checkbox ng-model="isChecked">I accept Terms &amp; Conditions</ion-checkbox>
+          </div>
+        </div>
+      </div>
+    </div>
+  </ion-content>
+  <ion-footer-bar class="footer-yellow-btn black pointer" ui-sref="app.checkout-successful">
+    <h1 class="btn-text">Buy</h1>
+  </ion-footer-bar>
+</ion-view>

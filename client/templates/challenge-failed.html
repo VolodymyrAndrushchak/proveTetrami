@@ -1,0 +1,34 @@
+<ion-view view-title="" hide-nav-bar="true" cache-view="false">
+
+    <ion-content class="ion-content-black ion-content-padding">
+        <div class="product-box product-details">
+            <div class="item item-body item-product-details pr0 pl0">
+
+                <div class="challenge-icon">
+                    <img src="img/icon-you-failed.png" width="35">
+                </div>
+
+                <div class="challenge-text failed">
+                    
+                    <h1>Oops! You are kicked out by: <span><i class="fa fa-user"></i> <span ng-if="!kicked">{{kickedByCx}} </span><span>{{kicked}}</span>  </span></h1>
+                </div>
+
+                <div class="m0">
+                    <button class="button button-large button-block button-yellow" ng-click="playAgain(play.productId)"><i class="fa fa-repeat"></i> Play Again</button>
+                </div>
+
+                <div class="suggestion">
+                    - Suggestion -
+                </div>
+
+
+            </div>
+
+
+            <div ng-include="'client/templates/_ads.play.html'" ng-controller="adsPlay"></div>
+
+
+        </div>
+
+    </ion-content>
+</ion-view>

@@ -1,0 +1,37 @@
+<ion-view view-title="Settings" hide-nav-bar="true">
+    <ion-header-bar class="bar-deepblue bar bar-header disable-user-behavior" align-title="center">
+        <div class="buttons buttons-left header-item" style="">
+            <span class="left-buttons">
+            <button menu-toggle="left" class="white-color button button-icon button-clear ion-navicon"></button>
+          </span>
+        </div>
+        
+        <div class="title title-center header-item">Settings</div>
+
+        
+        <div class="buttons buttons-right header-item" ng-controller="MyController" ng-include="'client/templates/_lives.html'"></div>
+
+    </ion-header-bar>
+
+    <!-- main content -->
+    <ion-content class="whit-bg">
+        <div class="list settings-list">
+            <div class="item item-divider">
+                Language
+            </div>
+            <a class="item" href="#/app/settings-language" ui-sref="app.settings-language">
+                <div class="list-text" ng-if="(lang.profile.lang == 'tr')">Turkish</div>
+                <div class="list-text" ng-if="(lang.profile.lang == 'en')">English</div>
+                <div class="list-icon"><i class="fa fa-chevron-right"></i></div>
+            </a>
+            <div class="item item-divider">
+                Shipment
+            </div>
+            <a class="item" href="#/app/settings-shipment" ui-sref="app.settings-shipment">
+                <div class="list-text">Your Address</div>
+                <div class="list-icon"><i class="fa fa-chevron-right"></i></div>
+            </a>
+        </div>
+    </ion-content>
+
+</ion-view>

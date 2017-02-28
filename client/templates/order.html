@@ -1,0 +1,63 @@
+<ion-view view-title="Challenge" hide-nav-bar="true">
+    <ion-header-bar class="bar-deepblue bar bar-header disable-user-behavior" align-title="center">
+        <div class="buttons buttons-left header-item" style="">
+            <span class="left-buttons">
+            <button menu-toggle="left" class="white-color button button-icon button-clear ion-navicon"></button>
+          </span>
+        </div>
+        <div class="title title-center header-item">Order</div>
+
+        <div class="buttons buttons-right header-item" ng-controller="MyController" ng-include="'client/templates/_lives.html'"></div>
+
+    </ion-header-bar>
+
+    <ion-content>
+
+
+        <div class="text-center" style="padding-top:40px;" ng-if="!orders.length">
+            <h1 class="btn-text">No Orders yet</h1>
+            <!--            <h4 class="sans-pro-light">Pull to refresh</h4>-->
+            <!--            <h2 class="ion-ios-arrow-thin-down"></h2>-->
+        </div>
+
+
+
+        <div class="product-box">
+            <div class="product-box" ng-repeat="order in orders">
+                <div class="item item-image">
+                    <img ng-src="{{imagex(order.productImage)}}">
+                </div>
+                <div class="item item-body">
+                    <div class="item-title-price">
+                        <div class="item-old-price">
+                            <span class="old-price">$ {{order.productPrice | currency:"":2}}</span>
+                        </div>
+                        <div class="item-title order">
+                            <h1> {{order.productName}}</h1>
+                        </div>
+                        <div class="item-price order">
+                            <h2>$ {{order.newPrice | currency:"":2}}</h2>
+                        </div>
+                    </div>
+                    <div class="item-discount-rate">
+                        <div class="item-rate order">
+                            <h3>
+              <span class="points ordered">Ordered at {{order.orderedAt | date:'medium'}}</span>
+            </h3>
+                        </div>
+                        <div class="item-shipping order">
+                            <h3>
+              <span class=""></span>
+                                
+                            <span class="shipping-status"><i class="fa fa-truck"></i> {{order.status}}</span>
+                            </h3>
+                        </div>
+                        <!--<span>Shipping: {{order.shipping}} <i class="fa fa-check-circle"></i></span>-->
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </ion-content>
+</ion-view>
